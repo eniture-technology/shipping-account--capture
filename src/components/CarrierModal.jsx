@@ -8,6 +8,7 @@ const CarrierModal = ({ open, setOpen, onSave, carrier }) => {
 
   const handleClose = () => {
     setOpen(false);
+    setLabel('');
     setError('');
   };
 
@@ -17,7 +18,7 @@ const CarrierModal = ({ open, setOpen, onSave, carrier }) => {
       return;
     }
     if (label.length > 20) {
-      setError('The label must be 20 characters or less');
+      setError('Label must be at most 20 characters');
       return;
     }
 
@@ -63,9 +64,9 @@ const CarrierModal = ({ open, setOpen, onSave, carrier }) => {
         </IconButton>
       </DialogTitle>
       <DialogContent>
-        <Box sx={{ width: '93%', p: 2 }}>
+        <Box sx={{ width: '95%', p: 2 }}>
           <TextField
-            label="Label*"
+            label="Label"
             value={label}
             onChange={(e) => setLabel(e.target.value)}
             size='medium'
@@ -77,7 +78,7 @@ const CarrierModal = ({ open, setOpen, onSave, carrier }) => {
             error={Boolean(error)}
             helperText={error}
           />
-          <Typography variant="p" color="textSecondary" sx={{ mt: 0 }}>
+          <Typography variant="body2" color="textSecondary" sx={{ mt: 1 }}>
             This will be shown as a dropdown on the checkout page.
           </Typography>
         </Box>

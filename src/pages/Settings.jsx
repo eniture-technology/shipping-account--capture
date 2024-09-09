@@ -242,18 +242,17 @@ const Settings = () => {
 
       {/* Delete Confirmation Dialog */}
       <Dialog open={deleteDialogOpen} onClose={() => setDeleteDialogOpen(false)} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
-        <DialogTitle id="alert-dialog-title">{"Delete option?"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">{"Are you sure you want to delete this item?"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-          Are you sure you want to delete this option?
+            Once deleted, this action cannot be undone.
           </DialogContentText>
         </DialogContent>
-        <Divider />
         <DialogActions>
           <Button onClick={() => setDeleteDialogOpen(false)} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleDeleteConfirm} color="error" autoFocus>
+          <Button onClick={handleDeleteConfirm} color="primary" autoFocus>
             Delete
           </Button>
         </DialogActions>

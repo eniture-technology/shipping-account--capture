@@ -2,7 +2,6 @@ import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Skeleton } from '@mui/material';
 import UserGuide from '../pages/Guide';
-import ConnectionSetting from '../pages/Connection';
 
 const Settings = React.lazy(() => import('../pages/Settings'));
 
@@ -16,12 +15,11 @@ const Wrapper = () => {
 	const components = {
 		settings: <Settings />,
 		guide: <UserGuide />,
-		connection: <ConnectionSetting />,
 	};
 
 	return (
 		<React.Suspense fallback={<Skeleton variant='rounded' animation='wave' height={500} />}>
-			{components[section] || <ConnectionSetting />}
+			{components[section] || <Settings />}
 		</React.Suspense>
 	);
 };

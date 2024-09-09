@@ -5,7 +5,6 @@ import { useSearchParams, Link } from 'react-router-dom';
 import { Grid, Box, List, ListItem, ListItemButton, Divider } from '@mui/material';
 
 const topBarButtons = [
-	{ id: 'connection', title: 'Connection Setting', href: '?page=wc-settings&tab=eniture-sac&section=connection' },
 	{ id: 'settings', title: 'Settings', href: '?page=wc-settings&tab=eniture-sac&section=settings' },
 	{ id: 'guide', title: 'User Guide', href: '?page=wc-settings&tab=eniture-sac&section=guide' },
   ];
@@ -21,7 +20,7 @@ const Topbar = () => {
 	const path = window.location.pathname + '?page=wc-settings&tab=eniture-sac&section=';
 
 	useEffect(() => {
-		setActiveButton(searchParams.get('section') || 'connection');
+		setActiveButton(searchParams.get('section') || 'settings');
 	}, [path]);
 
 	return (

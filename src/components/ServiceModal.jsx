@@ -12,6 +12,8 @@ const ServiceModal = ({ open, setOpen, onSave, service }) => {
 
   const handleClose = () => {
     setOpen(false);
+    setLabel('');
+    setDescription('');
     setError('');
     setDescriptionError('');
   };
@@ -22,11 +24,11 @@ const ServiceModal = ({ open, setOpen, onSave, service }) => {
       return;
     }
     if (label.length > 20) {
-      setError('The label must be 20 characters or less');
+      setError('Label must be at most 20 characters');
       return;
     }
     if (description.length > 50) {
-      setDescriptionError('The description must be 50 characters or less.');
+      setDescriptionError('Description must be at most 50 characters');
       return;
     }
 
@@ -75,9 +77,9 @@ const ServiceModal = ({ open, setOpen, onSave, service }) => {
         </IconButton>
       </DialogTitle>
       <DialogContent>
-        <Box sx={{ width: '93%', p: 2 }}>
+        <Box sx={{ width: '95%', p: 2 }}>
           <TextField
-            label="Label*"
+            label="Label"
             value={label}
             onChange={(e) => setLabel(e.target.value)}
             variant='standard'
@@ -89,9 +91,6 @@ const ServiceModal = ({ open, setOpen, onSave, service }) => {
             error={Boolean(error)}
             helperText={error}
           />
-          <Typography variant="p" color="textSecondary" sx={{ mt: 0 }}>
-          This will be shown as a service name at checkout. Account number will be appended to the end of the service name while displaying it at checkout.
-          </Typography>
           <TextField
             label="Description"
             value={description}

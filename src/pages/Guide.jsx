@@ -6,8 +6,11 @@ const UserGuide = () => {
     <Box display="flex" justifyContent="center" alignItems="flex-start" height="30vh" bgcolor="#f5f5f5" p={2} pt={10}>
       <Card sx={{ maxWidth: 600 }}>
         <CardContent>
+          <Typography variant="h5" component="div" gutterBottom>
+            User guide
+          </Typography>
           <Typography variant="body1" component="p">
-            The User Guide for this application is maintained on the publisher's website. To view it, click{' '}
+            The User Guide for this application is maintained on the publisher's website. To view it click{' '}
             <Link href="https://eniture.com/diy-shipping-account-capture/#documentation" target="_blank" rel="noopener">
               here
             </Link>{' '}
